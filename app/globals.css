@@ -51,6 +51,116 @@ body, aside, main, section, header, nav, div, button, a, table, td, th, input, s
   transition: background-color .3s ease, color .25s ease, border-color .3s ease;
 }
 
+.app-shell {
+  min-height: 100vh;
+  background: var(--bg);
+  display: flex;
+  align-items: stretch;
+}
+
+.app-sidebar {
+  width: 240px;
+  background: var(--bg2);
+  border-right: 1px solid var(--border);
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  flex-shrink: 0;
+}
+
+.app-main {
+  flex: 1;
+  min-width: 0;
+  padding: 32px;
+  overflow: auto;
+}
+
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -8px 24px var(--shadow);
+  padding: 8px max(10px, env(safe-area-inset-left)) calc(8px + env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-right));
+  display: none;
+  align-items: center;
+  justify-content: space-around;
+  gap: 4px;
+}
+
+.bottom-nav-item {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 7px 4px;
+  border-radius: 10px;
+  background: transparent;
+  border: 0;
+  color: var(--text3);
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.1;
+  text-decoration: none;
+}
+
+.bottom-nav-item.is-active {
+  background: linear-gradient(135deg,rgba(0,180,149,0.14),rgba(47,111,224,0.14));
+  color: var(--teal);
+}
+
+.bottom-nav-item svg {
+  flex-shrink: 0;
+}
+
+.bottom-nav-label {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 1023px) {
+  .app-sidebar {
+    display: none;
+  }
+
+  .app-main {
+    padding: 16px;
+    padding-bottom: 80px;
+  }
+
+  .bottom-nav {
+    display: flex;
+  }
+}
+
+@media (min-width: 1024px) {
+  .app-sidebar {
+    display: flex;
+  }
+
+  .app-main {
+    padding: 32px;
+  }
+
+  .bottom-nav {
+    display: none;
+  }
+}
+
 .font-display { font-family: "Space Grotesk", sans-serif; }
 .gradient-text {
   background: linear-gradient(135deg, var(--grad-from), var(--grad-to));

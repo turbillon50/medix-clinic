@@ -10,9 +10,9 @@ export default function ExpedienteClient({ records, patient, user }: Props) {
   const age = patient?.birth_date ? Math.floor((Date.now() - new Date(patient.birth_date).getTime()) / (365.25 * 24 * 3600 * 1000)) : null
 
   return (
-    <div style={{ minHeight: "100vh", background: "var(--bg)", display: "flex" }}>
+    <div className="app-shell">
       <PatientSidebar active="/app/expediente" />
-      <main style={{ flex: 1, padding: 32, overflow: "auto" }}>
+      <main className="app-main">
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
           <h1 className="font-display" style={{ fontSize: 28, fontWeight: 700, marginBottom: 4 }}>Mi Expediente</h1>
           <p style={{ color: "var(--text3)", marginBottom: 28 }}>Historial clínico completo</p>

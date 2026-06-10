@@ -10,9 +10,9 @@ export default function PatientDashboard({ user, appointments }: Props) {
   const name = user?.name || user?.email?.split("@")[0] || "Paciente"
 
   return (
-    <div style={{ minHeight: "100vh", background: "var(--bg)", display: "flex" }}>
+    <div className="app-shell">
       <PatientSidebar active="/app" />
-      <main style={{ flex: 1, padding: 32, overflow: "auto" }}>
+      <main className="app-main">
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
           <h1 className="font-display" style={{ fontSize: 28, fontWeight: 700, marginBottom: 4 }}>Hola, {name}</h1>
           <p style={{ color: "var(--text3)", marginBottom: 28 }}>{new Date().toLocaleDateString("es-MX", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}</p>
@@ -32,7 +32,7 @@ export default function PatientDashboard({ user, appointments }: Props) {
             ))}
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: 20 }}>
             <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 20, padding: 24, boxShadow: "0 4px 20px var(--shadow)" }}>
               <h2 style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 16, fontWeight: 600, marginBottom: 16 }}><Icon name="calendar" size={18} /> Citas recientes</h2>
               {appointments.length === 0 ? (

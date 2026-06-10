@@ -10,9 +10,11 @@ export default function AdminDashboardClient({ stats, patients }: Props) {
     ["chart", "Dashboard", true], ["calendar", "Citas de Hoy", false], ["users", "Pacientes", false],
     ["stethoscope", "Médicos", false], ["money", "Facturación", false], ["flask", "Laboratorio", false], ["report", "Reportes", false],
   ]
+  const shortLabel: Record<string, string> = { Dashboard: "Panel", "Citas de Hoy": "Hoy", Pacientes: "Pac.", Médicos: "Méd.", Facturación: "Fact.", Laboratorio: "Lab", Reportes: "Rep." }
+
   return (
-    <div style={{ minHeight: "100vh", background: "var(--bg)", display: "flex" }}>
-      <aside style={{ width: 240, background: "var(--bg2)", borderRight: "1px solid var(--border)", padding: "24px 0", display: "flex", flexDirection: "column", position: "sticky", top: 0, height: "100vh" }}>
+    <div className="app-shell">
+      <aside className="app-sidebar">
         <div style={{ padding: "0 24px 24px", borderBottom: "1px solid var(--border)", marginBottom: 16 }}>
           <div className="font-display gradient-text" style={{ fontSize: 20, fontWeight: 700 }}>MEDIX</div>
           <div style={{ fontSize: 11, color: "#ff4d6d", fontWeight: 600, marginTop: 2 }}>● Admin Panel</div>
@@ -28,7 +30,16 @@ export default function AdminDashboardClient({ stats, patients }: Props) {
         </button>
       </aside>
 
-      <main style={{ flex: 1, padding: 32 }}>
+      <nav className="bottom-nav" aria-label="Navegación de administración">
+        {NAV.map(([icon, label, active]) => (
+          <button key={label} type="button" className={`bottom-nav-item${active ? " is-active" : ""}`} aria-current={active ? "page" : undefined}>
+            <Icon name={icon} size={18} />
+            <span className="bottom-nav-label">{shortLabel[label] || label}</span>
+          </button>
+        ))}
+      </nav>
+
+      <main className="app-main">
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
           <h1 className="font-display" style={{ fontSize: 28, fontWeight: 700, marginBottom: 4 }}>Dashboard</h1>
           <p style={{ color: "var(--text3)", marginBottom: 28 }}>Martes 9 de junio, 2026 — Vista en tiempo real</p>

@@ -29,9 +29,9 @@ export default function CitasClient({ appointments, doctors }: Props) {
   const fieldStyle = { width: "100%", background: "var(--surface2)", border: "1px solid var(--border)", borderRadius: 10, padding: "10px 12px", color: "var(--text)", fontSize: 14, outline: "none" } as React.CSSProperties
 
   return (
-    <div style={{ minHeight: "100vh", background: "var(--bg)", display: "flex" }}>
+    <div className="app-shell">
       <PatientSidebar active="/app/citas" />
-      <main style={{ flex: 1, padding: 32 }}>
+      <main className="app-main">
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 28, flexWrap: "wrap", gap: 12 }}>
           <div>
             <h1 className="font-display" style={{ fontSize: 28, fontWeight: 700, marginBottom: 4 }}>Mis Citas</h1>
