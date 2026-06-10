@@ -37,7 +37,7 @@ export default function LoginPage() {
               placeholder="tu@correo.com"
               style={{width:"100%",background:"var(--surface2)",border:"1px solid var(--border)",borderRadius:12,padding:"12px 16px",color:"var(--text)",fontSize:14,outline:"none",marginBottom:20,boxSizing:"border-box"}}
             />
-            <button type="submit" disabled={loading} style={{width:"100%",background:"linear-gradient(135deg,#00d4aa,#3b8beb)",color:"#fff",border:"none",padding:"14px",borderRadius:99,fontWeight:600,fontSize:15,cursor:loading?"not-allowed":"pointer",opacity:loading?0.7:1}}>
+            <button type="submit" disabled={loading} style={{width:"100%",background:"linear-gradient(135deg,var(--grad-from),var(--grad-to))",color:"#fff",border:"none",padding:"14px",borderRadius:99,fontWeight:600,fontSize:15,cursor:loading?"not-allowed":"pointer",opacity:loading?0.7:1}}>
               {loading ? "Enviando..." : "Enviar enlace mágico →"}
             </button>
           </form>
