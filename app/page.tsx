@@ -93,9 +93,9 @@ export default function Home() {
               Agendar consulta
             </motion.button>
             <motion.button whileHover={{scale:1.02,borderColor:"#00d4aa"}} whileTap={{scale:0.97}}
-              onClick={()=>router.push("/app")}
+              onClick={()=>router.push("/demo")}
               style={{background:"transparent",color:"#8ba3c1",border:"1px solid rgba(99,179,237,0.2)",padding:"16px 32px",borderRadius:99,fontSize:15,fontWeight:500,cursor:"pointer",transition:"border-color 0.2s"}}>
-              Ver demo de paciente →
+              Explorar demo →
             </motion.button>
           </motion.div>
 
